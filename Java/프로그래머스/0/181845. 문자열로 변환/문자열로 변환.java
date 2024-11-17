@@ -1,6 +1,6 @@
 class Solution {
     public String solution(int n) {
-        String arr = Integer.toString(n);
-        return arr;
+        String answer = Integer.toString(n);
+        return answer;
     }
 }
