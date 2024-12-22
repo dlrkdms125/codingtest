@@ -1,20 +1,16 @@
 class Solution {
     boolean solution(String s) {
         boolean answer = true;
-        int p = 0;
-        int y = 0;
-        s = s.toLowerCase();
-        for(int i=0; i<s.length(); i++){
-            if(s.charAt(i)=='p'){
-                p++;
-            } else if(s.charAt(i)=='y'){
-                y++;
-            }
+        int countp = 0;
+        int county = 0;
+        String str = s.toUpperCase();
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'P') countp++;
+            else if (str.charAt(i) == 'Y') county++;
         }
-        if(p!=y){
-            answer = false;
-        }
-        return answer;
+        if (countp == county) answer = true;
+        else answer = false;
 
+        return answer;
     }
 }
