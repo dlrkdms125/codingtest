@@ -9,14 +9,17 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        br.readLine(); 
+        String n = br.readLine(); 
+        String numbers = br.readLine(); 
+        
         int sum = 0;
-        for (byte value : br.readLine().getBytes()) {
+        for (byte value : numbers.getBytes()) {
             sum += (value - '0'); 
         }
         
-        bw.write(String.valueOf(sum));
-        bw.flush(); 
+        bw.write(String.valueOf(sum)); 
+        bw.flush();
         bw.close(); 
     }
 }
+
