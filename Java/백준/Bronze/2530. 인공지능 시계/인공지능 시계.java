@@ -6,23 +6,19 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
+        int h = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        int s = Integer.parseInt(st.nextToken());
 
-        int A = Integer.parseInt(st.nextToken()); 
-        int B = Integer.parseInt(st.nextToken()); 
-        int C = Integer.parseInt(st.nextToken()); 
+        st = new StringTokenizer(br.readLine());
+        int ss = Integer.parseInt(st.nextToken());
 
-        int D = Integer.parseInt(br.readLine()); 
+        int total = ss+s+60*m+3600*h;
+        int newh = (total / 3600) % 24;
+        int newm = (total%3600)/60;
+        int news =  (total%3600)%60;
         
-        C += D;
-        B += C / 60; 
-        C %= 60;    
-
-        A += B / 60; 
-        B %= 60;    
-
-        A %= 24; 
-
-        bw.write(A + " " + B + " " + C + "\n");
+        bw.write(newh+" "+newm+" "+news);
         bw.flush();
         bw.close();
         br.close();
