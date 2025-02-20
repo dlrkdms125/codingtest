@@ -5,28 +5,24 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int[][] APT = new int[15][15];
+        int t = Integer.parseInt(br.readLine());
+        int[][] hotels = new int[15][15];
 
         for (int i = 1; i < 15; i++) {
-            APT[0][i] = i;
+            hotels[0][i] = i;
         }
-
-        for (int i = 1; i < 15; i++) {
-            for (int j = 1; j < 15; j++) {
-                if (j == 1) {
-                    APT[i][j] = 1;
-                } else {
-                    APT[i][j] = APT[i - 1][j] + APT[i][j - 1];
-                }
+        
+        for (int k = 1; k < 15; k++) { 
+            for (int n = 1; n < 15; n++) { 
+                hotels[k][n] = hotels[k - 1][n] + hotels[k][n - 1];
             }
         }
-
-        int T = Integer.parseInt(br.readLine());
-
-        for (int t = 0; t < T; t++) {
-            int k = Integer.parseInt(br.readLine());
-            int n = Integer.parseInt(br.readLine());
-            bw.write(APT[k][n] + "\n");
+        
+        for (int i = 0; i < t; i++) {
+            int k = Integer.parseInt(br.readLine()); 
+            int n = Integer.parseInt(br.readLine()); 
+            bw.write(String.valueOf(hotels[k][n]));
+            bw.newLine();
         }
 
         bw.flush();
@@ -34,4 +30,3 @@ public class Main {
         br.close();
     }
 }
-
