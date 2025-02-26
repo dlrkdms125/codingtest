@@ -5,22 +5,19 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int n = Integer.parseInt(br.readLine());
+        int count = -1;
 
-        int basket = 0;
+        for (int i = n / 5; i >= 0; i--) {
+            int remaining = n - (i * 5);
 
-        while(n>0){
-            if(n%5==0){
-                basket += n/5;
+            if (remaining % 3 == 0) {
+                count = i + (remaining / 3);
                 break;
-            } else {
-                n -= 3;
-                basket++;
-            }
-            if(n<0){
-                basket = -1;
             }
         }
-        bw.write(basket+" ");
+
+        bw.write(String.valueOf(count));
+        bw.flush();
         bw.close();
         br.close();
     }
