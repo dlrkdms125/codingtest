@@ -5,8 +5,8 @@ import java.util.StringTokenizer;
 public class Main {
     static boolean[][] check;
     static int[][] arr;
-    static int[] moveX = {0,0,-1,1};
-    static int[] moveY = {1,-1,0,0};
+    static int[] dx = {0,0,-1,1};
+    static int[] dy = {1,-1,0,0};
     static int N,M;
 
     public static void main(String[] args) throws IOException {
@@ -21,12 +21,11 @@ public class Main {
 
         for (int i = 0; i < N; i++) {
             String str = br.readLine();
-            char[] ch = str.toCharArray();
-
-            for(int j=0; j<ch.length; j++){
-                arr[i][j] = Character.getNumericValue(ch[j]);
+            for (int j = 0; j < M; j++) {
+                arr[i][j] = str.charAt(j) - '0'; // 문자 '0'을 빼면 숫자가 됨
             }
         }
+
         check[0][0] = true;
         bfs(0,0);
 
@@ -41,8 +40,8 @@ public class Main {
         while(!q.isEmpty()){
             Spot s = q.poll();
             for(int i=0; i<4; i++){
-                int nextX = s.x+moveX[i];
-                int nextY = s.y+moveY[i];
+                int nextX = s.x+dx[i];
+                int nextY = s.y+dy[i];
                 if(nextX<0 || nextY<0 || nextX>=N || nextY>=M){
                     continue;
                 }
