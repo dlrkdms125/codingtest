@@ -8,15 +8,16 @@ public class Main {
     static int[][] arr;
     static int count = 0;
     static int node, line;
+    static Queue<Integer> q = new LinkedList<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
         node = Integer.parseInt(br.readLine());
         line = Integer.parseInt(br.readLine());
         arr = new int[node+1][node+1];
         check = new boolean[node+1];
-        for (int i = 0; i < line; i++) {
+        for (int i=0; i<line; i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
@@ -32,7 +33,7 @@ public class Main {
         check[start] = true;
         count++;
         for(int i=0; i<=node; i++){
-            if(arr[start][i]==1 && !check[i]) dfs(i);
+            if(arr[start][i] == 1 && !check[i]) dfs(i);
         }
     }
 }
