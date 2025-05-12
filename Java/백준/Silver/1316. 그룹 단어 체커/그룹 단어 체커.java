@@ -4,28 +4,31 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
+        String[] arr = new String[n];
         int count = 0;
-        for(int i=0; i<N; i++){
-            if(checkGroupword(br.readLine())) count++;
+
+        for(int i=0; i<n; i++){
+            arr[i] = br.readLine();
+            if(check(arr[i])) count++;
         }
         bw.write(String.valueOf(count));
-        bw.newLine();
-        br.close();
+        bw.flush();
         bw.close();
+        br.close();
     }
-    static boolean checkGroupword(String str){
-        boolean[] check = new boolean[26];
-        int prev =-1;
+    private static boolean check(String str){ // 그룹단어이면 true
+        // 26 배열을 만들고, 각각의 아스키코드 값으로 배열에 값을 증가시켜서, 하나라도 2이상이면 false를 반환
+        boolean[] vi = new boolean[26];
+        char prev = 0;
         for(int i=0; i<str.length(); i++){
-            int now = str.charAt(i);
-            if(prev!=now){
-                if(!check[now-'a']){
-                    check[now-'a'] = true;
-                    prev = now;
-                } else {
-                    return false;
-                }
+            char current = str.charAt(i);
+
+            if(prev != current){
+                if(vi[current-'a']) return false;
+                vi[current-'a']= true;
+                prev = current;
+
             }
         }
         return true;
