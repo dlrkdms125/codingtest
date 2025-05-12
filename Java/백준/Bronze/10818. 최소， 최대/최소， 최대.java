@@ -1,24 +1,26 @@
 import java.io.*;
-import java.util.*;
+import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int n = Integer.parseInt(br.readLine());
+        int[] arr = new int[n];
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
 
-        int N = Integer.parseInt(br.readLine());
-        
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] numbers = new int[N];
-
-        for (int i = 0; i < N; i++) {
-            numbers[i] = Integer.parseInt(st.nextToken());
+        for (int i=0; i<n; i++){
+            arr[i] = Integer.parseInt(st.nextToken());
+            // 최대값, 최소값 동시에 가능?
+            if (arr[i]> max) max = arr[i];
+            if (arr[i]<min) min = arr[i];
         }
-        Arrays.sort(numbers);
-        bw.write(numbers[0] + " " + numbers[N - 1] + "\n");
-        
+        bw.write(min+" "+max);
         bw.flush();
         bw.close();
         br.close();
+
     }
 }
