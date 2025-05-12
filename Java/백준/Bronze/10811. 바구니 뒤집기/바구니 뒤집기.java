@@ -6,30 +6,26 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        int[] bucket = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            bucket[i] = i + 1;
+        int[] basket = new int[n];
+        for (int i=0; i<n; i++){
+            basket[i] = i+1;
         }
-
-        for (int i = 0; i < m; i++) {
+        for (int i=0; i<m; i++){
             st = new StringTokenizer(br.readLine());
-            int I = Integer.parseInt(st.nextToken()) - 1;  
-            int J = Integer.parseInt(st.nextToken()) - 1;  
-            while (I < J) {
-                int temp = bucket[I];
-                bucket[I] = bucket[J];
-                bucket[J] = temp;
-                I++;
-                J--;
+            int a = Integer.parseInt(st.nextToken())-1;
+            int b = Integer.parseInt(st.nextToken())-1;
+            while(a<b){
+                int temp = basket[a];
+                basket[a] = basket[b];
+                basket[b] = temp;
+                a++;
+                b--;
             }
         }
-
-        for (int i = 0; i < n; i++) {
-            bw.write(bucket[i] + " ");
+        for (int i=0; i<n; i++){
+            bw.write(basket[i]+" ");
         }
         bw.flush();
         bw.close();
