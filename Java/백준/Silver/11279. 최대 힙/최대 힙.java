@@ -4,20 +4,22 @@ import java.util.PriorityQueue;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br  = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int N = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
 
-        PriorityQueue<Integer> q = new PriorityQueue<>(Collections.reverseOrder());
-        for (int i = 0; i < N; i++) {
-            int num = Integer.parseInt(br.readLine());
-
-            if (num == 0)
-                bw.write((q.size() == 0 ? 0 : q.poll()) + "\n");
-            else 
-                q.add(num);
+        for (int i = 0; i < n; i++) {
+            int number = Integer.parseInt(br.readLine());
+            if(number>0) pq.add(number);
+            else if(number==0) {
+                if(!pq.isEmpty()) bw.write(String.valueOf(pq.poll())+"\n");
+                else bw.write(String.valueOf(0)+"\n");
+            }
         }
-        bw.flush(); 
+        bw.flush();
         bw.close();
+        br.close();
+
     }
 }
