@@ -6,26 +6,21 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
         int n = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
-
+        int result = 0;
         int count = 0;
         for (int i = 1; i <= n; i++) {
-            if (n % i == 0) { 
-                count++;
-                if (count == k) {
-                    bw.write(String.valueOf(i)); 
-                    bw.flush();
-                    bw.close();
-                    br.close();
-                    return; 
-                }
+            if(n%i==0) count++;
+            if(count==k) {
+                result = i;
+                break;
             }
         }
-        bw.write("0");
+        bw.write(String.valueOf(result));
         bw.flush();
         bw.close();
         br.close();
+
     }
 }
