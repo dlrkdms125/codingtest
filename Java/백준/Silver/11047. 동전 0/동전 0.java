@@ -8,24 +8,21 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
-
-        int[] coins = new int[n];
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
-            coins[i] = Integer.parseInt(br.readLine());
+            arr[i] = Integer.parseInt(br.readLine());
         }
-        int count = 0;
 
+        int count = 0;
         for (int i = n-1; i >= 0; i--) {
-            if(coins[i]<=k){
-                count += k/coins[i];
-                k %= coins[i];
+            if(arr[i]<=k) {
+                count += k/arr[i];
+                k = k%arr[i];
             }
         }
         bw.write(String.valueOf(count));
         bw.flush();
         bw.close();
         br.close();
-
-
     }
 }
