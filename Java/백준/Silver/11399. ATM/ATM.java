@@ -6,23 +6,22 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st;
-
         int n = Integer.parseInt(br.readLine());
-        st = new StringTokenizer(br.readLine());
-        int[] p = new int[n];
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
-            p[i] = Integer.parseInt(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(p);
-        int sum = 0;
-        for (int i = 0; i < n; i++) {
-            sum += p[i] * (n-i);
+        Arrays.sort(arr);
+        int sum = arr[0];
+        for (int i = 1; i < n; i++) {
+            arr[i] = arr[i] +arr[i-1];
+            sum += arr[i];
         }
         bw.write(String.valueOf(sum));
+        bw.flush();
         bw.close();
         br.close();
-
 
     }
 }
