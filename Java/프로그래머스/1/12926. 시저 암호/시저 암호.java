@@ -1,15 +1,18 @@
 class Solution {
     public String solution(String s, int n) {
-        String answer = "";
-        for(int i=0; i< s.length(); i++){
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<s.length(); i++){
             char ch = s.charAt(i);
-            if(Character.isLowerCase(ch)){
-                ch = (char)((ch-'a'+n)%26+'a');
-            } else if (Character.isUpperCase(ch)){
-                ch = (char)((ch-'A'+n)%26+'A');
+            if(Character.isUpperCase(ch)){
+                char shifted = (char) ((ch - 'A' + n) % 26 + 'A');
+                sb.append(shifted);
+            } else if(Character.isLowerCase(ch)) {
+                char shifted = (char) ((ch - 'a' + n) % 26 + 'a');
+                sb.append(shifted);
+            } else {
+                sb.append(ch);
             }
-            answer += ch;  
         }
-        return answer;
+        return sb.toString();
     }
 }
