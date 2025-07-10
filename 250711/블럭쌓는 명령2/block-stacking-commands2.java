@@ -18,7 +18,7 @@ public class Main {
             int a = Integer.parseInt(st1.nextToken());
             int b = Integer.parseInt(st1.nextToken());
             for(int j=a; j<=b; j++){
-                block[i]++;
+                block[j]++;
             }
         }
         for(int i=0; i<n; i++){
