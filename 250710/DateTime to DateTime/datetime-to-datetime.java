@@ -24,6 +24,7 @@ public class Main {
             h += 24;
         }
         int sum = (d-11)*24*60 + (h-11)*60 + m-11;
+        if(sum<0) sum = -1;
         return sum;
     }
 }
