@@ -6,26 +6,25 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int n = Integer.parseInt(br.readLine());
-        String[][] command = new String[n+2][2];
-        int[] line = new int[1000];
-        for(int i=0; i<line.length; i++){
-            line[i] = 0;
-        }
+        int[] line = new int[1001]; // 구간 체크용 (좌표 0~1000)
         int cnt = 0;
         int now = 500;
         for(int i=0; i<n; i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
-            command[i][0] = st.nextToken();
-            command[i][1] = st.nextToken();
-            int number  = Integer.parseInt(command[i][0]);
-            if(command[i][1].equals("R")) {
-                for(int j=1; j<=number; j++) {
-                    line[now + j]++;
+            int number  = Integer.parseInt(st.nextToken());
+            String dir = st.nextToken();
+            if(dir.equals("R")) {
+                for(int j=0; j<number; j++) {
+                    int left = now + j;
+                    int right = now + j + 1;
+                    line[Math.min(left, right)]++;
                 }
                 now = now + number;
             } else {
-                for(int j=1; j<=number; j++) {
-                    line[now - j]++;
+                for(int j=0; j<number; j++) {
+                    int left = now - j;
+                    int right = now - j - 1;
+                    line[Math.min(left, right)]++;
                 }
                 now = now - number;
             }
@@ -33,7 +32,6 @@ public class Main {
         for(int i=0; i<line.length; i++){
             if(line[i]>=2) cnt++;
         }
-
         bw.write(String.valueOf(cnt));
         bw.flush();
     }
