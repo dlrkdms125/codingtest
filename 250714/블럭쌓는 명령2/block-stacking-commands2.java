@@ -17,7 +17,7 @@ public class Main {
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
             for(int j=a; j<=b; j++){
-                block[i]++;
+                block[j]++;
             }
         }
         int max = 0;
