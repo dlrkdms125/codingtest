@@ -15,7 +15,7 @@ public class Main {
             char dir = st.nextToken().charAt(0);
             if(dir=='R'){
                 for(int j=1; j<=number; j++){
-                    line[cur+j]++;
+                    line[cur+j-1]++;
                 }
                 cur += number;
             } else {
