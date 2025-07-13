@@ -8,8 +8,8 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        int[] am = new int[100000];
-        int[] bm = new int[100000];
+        int[] am = new int[1000];
+        int[] bm = new int[1000];
         int total = 0;
         for(int i=1; i<n; i++){
             st = new StringTokenizer(br.readLine());
