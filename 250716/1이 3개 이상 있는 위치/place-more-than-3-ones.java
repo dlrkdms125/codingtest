@@ -11,7 +11,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         n = Integer.parseInt(br.readLine());
-        int[][] map = new int[n][n];
+        int[][] map = new int[n+1][n+1];
         for(int i=0; i<n; i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
             for(int j=0; j<n; j++){
