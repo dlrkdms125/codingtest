@@ -20,16 +20,20 @@ public class Main {
         }
         int x = 0;
         int y = 0;
-        int cnt = 0;
-        for(int i=0; i<4; i++){
+        int result = 0;
+        for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
-                int nx = x + dx[i];
-                int ny = y + dy[i];
-                if(inRange(nx, ny) && map[nx][ny]==1) cnt++;
+                int count = 0;
+                for(int dir=0; dir<4; dir++){
+                    int nx = i+dx[dir];
+                    int ny = j+dy[dir];
+                    if(inRange(nx, ny) && map[nx][ny]==1) count++;
+                }
+                if(count>=3) result++;
             }
         }
 
-        bw.write(String.valueOf(cnt));
+        bw.write(String.valueOf(result));
         bw.flush();
 
 
