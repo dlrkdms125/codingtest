@@ -21,7 +21,7 @@ public class Main {
         int x = 0;
         int y = 0;
         int cnt = 0;
-        for(int i=0; i<n; i++){
+        for(int i=0; i<4; i++){
             for(int j=0; j<n; j++){
                 int nx = x + dx[i];
                 int ny = y + dy[i];
