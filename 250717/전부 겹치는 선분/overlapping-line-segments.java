@@ -4,25 +4,24 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int n = Integer.parseInt(br.readLine());
-        int[] line = new int[102];
-        for(int i=0; i<n; i++){
+
+        int maxStart = Integer.MIN_VALUE;
+        int minEnd = Integer.MAX_VALUE;
+
+        for(int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int x1 = Integer.parseInt(st.nextToken());
             int x2 = Integer.parseInt(st.nextToken());
-            for(int j=x1-1; j<x2; j++){
-                line[j]++;
-            }
+
+            maxStart = Math.max(maxStart, x1);
+            minEnd = Math.min(minEnd, x2);
         }
-        String answer = "No";
-        for(int i=0; i<line.length; i++){
-            if(line[i]>=3) {
-                answer = "Yes";
-                break;
-            } 
+
+        if (maxStart <= minEnd) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
         }
-        bw.write(answer);
-        bw.flush();
     }
 }
