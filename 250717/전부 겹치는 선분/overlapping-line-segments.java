@@ -16,7 +16,7 @@ public class Main {
             }
         }
         String answer = "No";
-        for(int i=0; i<=101; i++){
+        for(int i=0; i<line.length; i++){
             if(line[i]>=3) {
                 answer = "Yes";
                 break;
