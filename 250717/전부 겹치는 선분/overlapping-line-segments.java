@@ -15,12 +15,12 @@ public class Main {
                 line[j]++;
             }
         }
-        String answer = "";
+        String answer = "No";
         for(int i=0; i<=101; i++){
             if(line[i]>=3) {
                 answer = "Yes";
                 break;
-            } else answer = "No";
+            } 
         }
         bw.write(answer);
         bw.flush();
