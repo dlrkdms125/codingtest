@@ -12,12 +12,12 @@ public class Main {
         int c = Integer.parseInt(st.nextToken());
         int d = Integer.parseInt(st.nextToken());
         int answer = 0;
-        if(b<c || d<a) answer = d-c+b-a;
+        if(b<=c || d<=a) answer = d-c+b-a;
         else {
-            if(c<a && a<d && d<b) answer = b-c;
-            else if(a<c && c<b && b<d) answer = d-a;
-            else if(a<c && c<d && d<b) answer = b-a;
-            else if(c<a && a<b && b<d) answer = d-c;
+            if(c<=a && a<=d && d<=b) answer = b-c;
+            else if(a<=c && c<=b && b<=d) answer = d-a;
+            else if(a<=c && c<=d && d<=b) answer = b-a;
+            else if(c<=a && a<=b && b<=d) answer = d-c;
         }
         bw.write(String.valueOf(answer));
         bw.flush();
