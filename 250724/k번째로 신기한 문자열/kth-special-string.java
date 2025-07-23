@@ -16,7 +16,7 @@ public class Main {
         ArrayList<String> words = new ArrayList<>();
 
         for(int i=0; i<n; i++){
-            if(arr[i].contains(t)) words.add(arr[i]);
+            if(arr[i].startsWith(t)) words.add(arr[i]);
         }
         String[] result = new String[words.size()];
         for(int i=0; i<words.size(); i++){
