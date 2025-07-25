@@ -12,6 +12,11 @@ public class Main {
             char ch = input.charAt(i);
             if(ch=='(') stack.push(ch);
             else if (ch==')') {
+                if (stack.isEmpty()) {   // 짝이 맞지 않는 닫는 괄호
+                    bw.write("No");
+                    bw.flush();
+                    return;
+                }
                 stack.pop();
             }
         }
