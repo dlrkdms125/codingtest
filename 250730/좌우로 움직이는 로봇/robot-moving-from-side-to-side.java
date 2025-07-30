@@ -15,38 +15,48 @@ public class Main {
         int[] b = new int[size];
         int posa = offset;
         int posb = offset;
+        a[0] = posa;
+        b[0] = posb;
 
-        int time = 0;
-        int maxtime = 0;
+        int timea = 1;
         for(int i=0; i<n; i++){
             st = new StringTokenizer(br.readLine());
             int number = Integer.parseInt(st.nextToken());
             char dir = st.nextToken().charAt(0);
-            for(int j=0; j<number; j++){
-                if(dir=='L') posa--;
-                else posa++;
-                a[++time]=posa;
+            while(number-->0){
+                if(dir=='R') a[timea] = a[timea-1]+1;
+                else a[timea] = a[timea-1]-1;
+                timea++;
             }
-            maxtime = Math.max(maxtime, time);
         }
-        time = 0;
+        int timeb = 1;
         for(int i=0; i<m; i++){
             st = new StringTokenizer(br.readLine());
             int number = Integer.parseInt(st.nextToken());
             char dir = st.nextToken().charAt(0);
-            for(int j=0; j<number; j++){
-                if(dir=='L') posb--;
-                else posb++;
-                b[++time]=posb;
+            while(number-->0){
+                if(dir=='R') b[timeb] = b[timeb-1]+1;
+                else b[timeb] = b[timeb-1]-1;
+                timeb++;
             }
-            maxtime = Math.max(maxtime, time);
         }
-        int count = 1;
-        for(int i=1; i<=maxtime; i++){
-            if(a[i]==b[i] && a[i-1]!=b[i-1]) count++;
+
+        if(timea<timeb){
+            for(int i=timea; i<timeb; i++){
+                a[i] = a[i-1];
+            }
+        } else {
+            for(int i=timeb; i<timea; i++){
+                b[i] = b[i-1];
+            }
         }
-        
-        bw.write(String.valueOf(count));
+
+        int cnt = 0;
+        int timemax = Math.max(timea, timeb);
+        for(int i=1; i<timemax; i++){
+            if(a[i]==b[i] && a[i-1]!=b[i-1]) cnt++;
+        }
+        bw.write(String.valueOf(cnt));
         bw.flush();
         
     }
