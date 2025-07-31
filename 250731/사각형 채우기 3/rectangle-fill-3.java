@@ -10,12 +10,12 @@ public class Main {
 
         dp[1] = 2;
         if(n>=2) dp[2] = 7;
-        if(n>=3) dp[3] = 22;
+        if(n>=2)dp[3] = 22;
         for(int i=4; i<=n; i++){
-            dp[n] = (dp[n-1]*4-dp[n-1]+1);
+            dp[i] = (dp[i-1]*4-dp[i-1]+1)%1_000_000_007;
         }
 
-        bw.write(String.valueOf(dp[n]%1_000_000_007));
+        bw.write(String.valueOf(dp[n]));
         bw.flush();
 
     }
