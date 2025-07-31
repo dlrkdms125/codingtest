@@ -9,8 +9,8 @@ public class Main {
         int[] dp = new int[1001];
 
         dp[1] = 2;
-        dp[2] = 7;
-        dp[3] = 22;
+        if(n>=2) dp[2] = 7;
+        if(n>=3) dp[3] = 22;
         for(int i=4; i<=n; i++){
             dp[n] = (dp[n-1]*4-dp[n-1]+1);
         }
