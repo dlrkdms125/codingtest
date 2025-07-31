@@ -6,7 +6,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int n = Integer.parseInt(br.readLine());
-        int[] dp = new int[n+1];
+        int[] dp = new int[100000];
         dp[0] = 1;
         if(n>=1) dp[1] = 0;
         if(n>=2) dp[2] = 1;
