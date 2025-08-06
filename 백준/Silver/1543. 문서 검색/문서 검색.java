@@ -1,26 +1,33 @@
+import java.util.*;
+import java.lang.*;
 import java.io.*;
-import java.util.StringTokenizer;
 
-public class Main {
+class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String str = br.readLine();
+        String word = br.readLine();
         String find = br.readLine();
-        int count = 0;
-        int i=0;
-        while(i<= str.length() - find.length()){
-            if(str.substring(i, i+find.length()).equals(find)) {
-                count++;
-                i += find.length();
+        int cnt = 0;
+        int index = 0;
+        
+        while(index<=word.length()-find.length()) {
+            boolean match = true;
+            for(int j=0; j<find.length(); j++){
+                if(word.charAt(index+j)!=find.charAt(j)){
+                    match = false;
+                    break;
+                }
+            }
+            if(match) {
+                cnt++;
+                index += find.length();
             } else {
-                i++;
+                index++;
             }
         }
-        bw.write(String.valueOf(count));
+        
+        bw.write(String.valueOf(cnt));
         bw.flush();
-        bw.close();
-        br.close();
-
     }
 }
