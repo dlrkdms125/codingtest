@@ -1,12 +1,9 @@
-import java.io.*;
-import java.util.*;
 class Solution {
     public int[] solution(long n) {
-        String str = String.valueOf(n);
-        int k = str.length();
-        int[] answer = new int[k];
-        for(int i=k; i>0; i--){
-            answer[k-i] = Integer.parseInt(str.substring(i-1, i));
+        String[] var = Long.toString(n).split("");
+        int[] answer = new int[var.length];
+        for(int i=0; i<answer.length; i++){
+            answer[answer.length-i-1] = Integer.parseInt(var[i]);
         }
         return answer;
     }
