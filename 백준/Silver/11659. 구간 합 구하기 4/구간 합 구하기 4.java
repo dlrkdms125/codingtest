@@ -10,22 +10,26 @@ class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        int[] arr = new int[n+1];
-        int[] real = new int[n+1];
+        int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
-        for(int i=1; i<=n; i++){
-            int number = Integer.parseInt(st.nextToken());
-            real[i] = number;
-            arr[i] = arr[i-1]+number;
+        for(int i=0; i<n; i++){
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        for(int t=0; t<m; t++){
+        int[] sum = new int[n+1];
+        sum[0] = arr[0];
+        for(int i=1; i<=n; i++){
+            sum[i] = sum[i-1]+arr[i-1];
+        }
+        for(int i=0; i<m; i++){
             st = new StringTokenizer(br.readLine());
-            int i = Integer.parseInt(st.nextToken());
-            int j = Integer.parseInt(st.nextToken());
-            if(i!=j) bw.write(String.valueOf(arr[j]-arr[i-1]));
-            else bw.write(String.valueOf(real[i]));
+            int start = Integer.parseInt(st.nextToken());
+            int end = Integer.parseInt(st.nextToken());
+            int res = sum[end] - sum[start-1];
+            bw.write(String.valueOf(res));
             bw.newLine();
         }
-        bw.flush();
+        
+        bw.close();
+        br.close();
     }
 }
