@@ -1,24 +1,24 @@
+import java.util.*;
+import java.lang.*;
 import java.io.*;
-import java.util.Comparator;
-import java.util.PriorityQueue;
 
-public class Main {
+
+class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int n  = Integer.parseInt(br.readLine());
-        PriorityQueue<Integer> q = new PriorityQueue<>(Comparator.reverseOrder()); // 오름차순임
-        for (int i = 0; i < n; i++) {
-            int number = Integer.parseInt(br.readLine());
-            if(number>0) q.add(number);
-            else if(number==0){
-                if(!q.isEmpty()) bw.write(String.valueOf(q.poll())+"\n");
-                else bw.write(String.valueOf(0)+"\n");
-            }
+        int n = Integer.parseInt(br.readLine());
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+        for(int i=0; i<n; i++){
+            int num = Integer.parseInt(br.readLine());
+            if(num>0) pq.add(num);
+            else {
+                if(pq.isEmpty()) bw.write("0"+"\n");
+                else bw.write(String.valueOf(pq.poll())+"\n");
+            } 
         }
-        bw.flush();
+    
         bw.close();
         br.close();
-
     }
 }
