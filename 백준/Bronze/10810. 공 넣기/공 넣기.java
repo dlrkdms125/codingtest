@@ -10,19 +10,22 @@ class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        int[] bucket = new int[n+1];
+        int[] arr = new int[n];
         for(int t=0; t<m; t++){
             st = new StringTokenizer(br.readLine());
-            int i = Integer.parseInt(st.nextToken())-1;
-            int j = Integer.parseInt(st.nextToken())-1;
+            int i = Integer.parseInt(st.nextToken());
+            int j = Integer.parseInt(st.nextToken());
             int k = Integer.parseInt(st.nextToken());
-            for(int z=i; z<=j; z++){
-                bucket[z] = k;
+            for(int p=i-1; p<j; p++){
+                arr[p] = k;
             }
         }
         for(int i=0; i<n; i++){
-            bw.write(bucket[i]+" ");
+            bw.write(String.valueOf(arr[i])+" ");
         }
         bw.flush();
+        bw.close();
+        br.close();
+           
     }
 }
