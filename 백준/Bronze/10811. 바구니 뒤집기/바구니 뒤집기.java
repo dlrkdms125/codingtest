@@ -1,35 +1,34 @@
+import java.util.*;
+import java.lang.*;
 import java.io.*;
-import java.util.StringTokenizer;
 
-public class Main {
+
+class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        int[] bucket = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            bucket[i] = i + 1;
+        int[] bucket = new int[n+1];
+        for(int i=1; i<=n; i++){
+            bucket[i] = i;
         }
-
-        for (int i = 0; i < m; i++) {
+        int temp = 0;
+        for(int i=0; i<m; i++){
             st = new StringTokenizer(br.readLine());
-            int I = Integer.parseInt(st.nextToken()) - 1;  
-            int J = Integer.parseInt(st.nextToken()) - 1;  
-            while (I < J) {
-                int temp = bucket[I];
-                bucket[I] = bucket[J];
-                bucket[J] = temp;
-                I++;
-                J--;
+            int start = Integer.parseInt(st.nextToken());
+            int end = Integer.parseInt(st.nextToken());
+            while(start<end){
+                temp = bucket[start];
+                bucket[start] = bucket[end];
+                bucket[end] = temp;
+                start++;
+                end--;
             }
         }
-
-        for (int i = 0; i < n; i++) {
-            bw.write(bucket[i] + " ");
+        for(int i=1; i<=n; i++){
+            bw.write(bucket[i]+" ");
         }
         bw.flush();
         bw.close();
