@@ -27,9 +27,11 @@ public class Main {
         while(t-->0){
             int temp1 = a[n-1];
             int temp2 = b[n-1];
+            int temp3 = c[n-1];
             for(int i=n-1; i>=1; i--){
                 a[i] = a[i-1];
             }
+            a[0] = temp3;
             for(int i=n-1; i>=1; i--){
                 b[i] = b[i-1];
             }
