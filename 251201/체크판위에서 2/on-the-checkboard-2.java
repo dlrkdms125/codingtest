@@ -20,10 +20,10 @@ public class Main {
             }
         }
         int cnt = 0;
-        for(int i=1; i<r; i++){
+        for(int i=0; i<r; i++){
             for(int j=1; j<c; j++){
-                for(int k=i+1; k<r-1; k++){
-                    for(int t=j+1; t<c-1; t++){
+                for(int k=i+1; k<r; k++){
+                    for(int t=j+1; t<c; t++){
                         if(board[0][0]!=board[i][j] && board[i][j]!=board[k][t]) cnt++;
                     }
                 }
