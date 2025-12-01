@@ -16,12 +16,10 @@ public class Main {
         }
         int max = Integer.MIN_VALUE;
         for(int i=0; i<n; i++){
-            int sum = 0;
-            for(int j=i; j<i+3; j++){
-                if(j>=n) break;
-                else sum += arr[i][j];
+            for(int j=0; j<n-2; j++){
+                int sum = arr[i][j]+arr[i][j+1]+arr[i][j+2];
+                max = Math.max(max, sum);
             }
-            max = Math.max(sum, max);
         }
 
         bw.write(String.valueOf(max));
