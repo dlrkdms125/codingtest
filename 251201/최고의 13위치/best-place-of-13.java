@@ -19,7 +19,7 @@ public class Main {
             int sum = 0;
             for(int j=i; j<i+3; j++){
                 if(j>=n) break;
-                sum += arr[i][j];
+                else sum += arr[i][j];
             }
             max = Math.max(sum, max);
         }
